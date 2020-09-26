@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  skip_before_action :authorized, only: [:create]
+
+  def profile
+    render json: { user: UserSerializer.new(current_user) }, status: :accepted
+  end
+
   def index
     users = User.all
 
@@ -7,8 +13,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    # byebug
     if @user.valid?
-      render json: { user: UserSerializer.new(@user) }, status: :created
+      @token = encode_token(user_id: @user.id)
+      render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
       render json: { error: 'Unable to create new profile. Please try again.' }, status: :not_acceptable
     end
