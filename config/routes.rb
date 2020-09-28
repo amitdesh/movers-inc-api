@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :destinations
   resources :users
   post '/login', to: 'auth#create'
   get '/users/profile', to: 'users#profile'
