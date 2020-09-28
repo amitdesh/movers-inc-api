@@ -1,3 +1,4 @@
 class DestinationSerializer < ActiveModel::Serializer
-  attributes :id, :destinaton, :date, :time
+  attributes :id, :location, :date, :time, :user_id
+  # belongs_to :user
 end

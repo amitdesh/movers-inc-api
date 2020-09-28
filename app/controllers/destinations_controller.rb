@@ -7,6 +7,7 @@ class DestinationsController < ApplicationController
 
   def create
     @destination = Destination.create(dest_params)
+    # byebug
     if @destination.valid?
       render json: { destination: DestinationSerializer.new(@destination), user: @destination.user }, status: :created
     else
@@ -17,6 +18,6 @@ class DestinationsController < ApplicationController
   private
 
   def dest_params
-    params.require(:destination).permit(:location, :date, :time)
+    params.require(:destination).permit(:user_id, :location, :time, :date)
   end
 end
