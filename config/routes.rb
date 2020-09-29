@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :destination_inventories
+  resources :inventories
   resources :destinations
   resources :users
   post '/login', to: 'auth#create'

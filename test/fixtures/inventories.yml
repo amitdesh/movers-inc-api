@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sofa: MyString
+  bed: MyString
+  desk: MyString
+  table: MyString
+  chair: MyString
+  boxes: MyString
+  appliances: MyString
+  plants: MyString
+  art: MyString
+
+two:
+  sofa: MyString
+  bed: MyString
+  desk: MyString
+  table: MyString
+  chair: MyString
+  boxes: MyString
+  appliances: MyString
+  plants: MyString
+  art: MyString

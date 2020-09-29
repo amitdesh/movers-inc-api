@@ -10,16 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_145735) do
+ActiveRecord::Schema.define(version: 2020_09_29_125504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "destination_inventories", force: :cascade do |t|
+    t.integer "destination_id"
+    t.integer "inventory_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "destinations", force: :cascade do |t|
     t.string "location"
     t.string "date"
     t.string "time"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.integer "sofa"
+    t.integer "bed"
+    t.integer "desk"
+    t.integer "table"
+    t.integer "chair"
+    t.integer "boxes"
+    t.integer "appliances"
+    t.integer "plants"
+    t.integer "art"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
