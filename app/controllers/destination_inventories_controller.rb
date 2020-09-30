@@ -10,7 +10,7 @@ class DestinationInventoriesController < ApplicationController
     # byebug
     # move_price = @dest_inv.price
     if @dest_inv
-      render json: { destination: DestinationSerializer.new(@dest_inv) }, status: :created
+      render json: { destination: DestinationSerializer.new(@dest_inv), user: UserSerializer.new(@dest_inv.user) }, status: :created
     else
       render json: { error: 'Unable to create new move request. Please try again.' }, status: :not_acceptable
     end
