@@ -3,6 +3,7 @@ class CreateDestinationInventories < ActiveRecord::Migration[6.0]
     create_table :destination_inventories do |t|
       t.integer :destination_id
       t.integer :inventory_id
+      t.integer :count
 
       t.timestamps
     end

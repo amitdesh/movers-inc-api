@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_09_29_125504) do
   create_table "destination_inventories", force: :cascade do |t|
     t.integer "destination_id"
     t.integer "inventory_id"
+    t.integer "count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,15 +33,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_125504) do
   end
 
   create_table "inventories", force: :cascade do |t|
-    t.integer "sofa"
-    t.integer "bed"
-    t.integer "desk"
-    t.integer "table"
-    t.integer "chair"
-    t.integer "boxes"
-    t.integer "appliances"
-    t.integer "plants"
-    t.integer "art"
+    t.string "name"
+    t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

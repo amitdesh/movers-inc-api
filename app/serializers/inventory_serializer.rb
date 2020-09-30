@@ -1,4 +1,5 @@
 class InventorySerializer < ActiveModel::Serializer
-  attributes :id, :sofa, :bed, :desk, :table, :chair, :boxes, :appliances, :plants, :art
-  has_many :destinations
+  attributes :id, :name, :price
+  has_many :destination_inventories
+  has_many :destinations, through: :destination_inventories
 end

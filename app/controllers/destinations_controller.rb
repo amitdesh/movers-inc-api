@@ -5,19 +5,26 @@ class DestinationsController < ApplicationController
     render json: users
   end
 
-  def create
-    @destination = Destination.create(dest_params)
-    # byebug
-    if @destination.valid?
-      render json: { destination: DestinationSerializer.new(@destination), user: @destination.user }, status: :created
-    else
-      render json: { error: 'Unable to create new move request. Please try again.' }, status: :not_acceptable
-      end
+  def destroy
+    destination = Destination.find(params[:id])
+    destination.destroy
+
+    render json: destination
   end
 
-  private
+  #   def create
+  #     @destination = Destination.create(dest_params)
+  #     # byebug
+  #     if @destination.valid?
+  #       render json: { destination: DestinationSerializer.new(@destination), user: @destination.user }, status: :created
+  #     else
+  #       render json: { error: 'Unable to create new move request. Please try again.' }, status: :not_acceptable
+  #       end
+  #   end
 
-  def dest_params
-    params.require(:destination).permit(:user_id, :location, :time, :date)
-  end
+  #   private
+
+  #   def dest_params
+  #     params.require(:destination).permit(:user_id, :location, :time, :date)
+  #   end
 end
